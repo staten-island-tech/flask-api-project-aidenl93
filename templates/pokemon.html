@@ -26,8 +26,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       // Convert Python lists to JavaScript arrays using Jinja's tojson filter
-      const statNames = {{pokemon.stat_names | tojson }};
-      const statValues = {{pokemon.stat_values | tojson }};
+      const statNames = {{pokemons.stat_names | tojson }};
+      const statValues = {{pokemons.stat_values | tojson }};
 
       // Create a bar chart to display the Pokémon's base stats
       const ctx = document.getElementById('statsChart').getContext('2d');
