@@ -12,7 +12,7 @@
       <div class="wanted-person">
         <h2>{{ item.title }}</h2>
         <img src="{{ item.images[0].original }}" alt="{{ item.title }}" width="200">
-        <p><strong>Details:</strong> {{ item.description }}</p>
+        <a href="{{ url_for('wanted', uid=item.uid) }}">View Details</a>
       </div>
     {% endfor %}
   </div>
