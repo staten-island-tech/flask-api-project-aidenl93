@@ -6,16 +6,17 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
-    'title': 'Cyber Crimes',
-    'page': 1,
+    'subjects': "Cyber's Most Wanted",
+    'race': 'asian'
 })
     data = response.json()
     return render_template('index.html', items=data['items'])
 @app.route("/wanted/<uid>")
 def wanted(uid):
     response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
-    'title': 'Cyber Crimes',
-    'page': 1,
+    'subjects': "Cyber's Most Wanted",
+    'race': 'asian'
+
 
 })
     data = response.json()
