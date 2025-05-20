@@ -14,3 +14,12 @@ body {
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
 }
+.wanted-person img {
+  margin: 0 auto 20px;
+}
+.wanted-person a {
+  display: block;
+  margin-top: 8px;
+  text-decoration: none;
+  color: blue;
+}
