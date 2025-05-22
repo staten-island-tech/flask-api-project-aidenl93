@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     page = request.args.get('page', 1, type=int)
     response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
-        'race': 'asian',
+        "field_offices": "newyork",
         'page': page,
         'pagesize': 20
     })
@@ -16,9 +16,9 @@ def index():
 
 @app.route("/wanted/<uid>")
 def wanted(uid):
-    for page in range(1, 5):  # Adjust
+    for page in range(1, 53):  # Adjust
         response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
-            'race': 'asian',
+            "field_offices": "newyork",
             'page': page,
             'pagesize': 20
         })

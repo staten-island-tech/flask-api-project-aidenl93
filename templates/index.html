@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>FBI MOST WANTED</h1>
+    <h1>FBI MOST WANTED IN THE STATE OF NY</h1>
 
     {% for item in items %}
       <div class="wanted-person">
@@ -15,7 +15,7 @@
         {% if item.images %}
           <img src="{{ item.images[0].original }}" alt="{{ item.title }}" width="200">
         {% endif %}
-        <a href="{{ url_for('wanted', uid=item.uid) }}">View Details</a>
+        <a href="{{ url_for('wanted', uid=item.uid) }}" class="viewbutton">  View Details</a>
       </div>
     {% endfor %}
 
