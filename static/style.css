@@ -36,7 +36,7 @@ body {
   transition: background 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.viewdetails:hover{
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
-  transform: scale(1.05);
+.viewbutton:hover{
+  background: linear-gradient(to right, #f75d42, #f76184);
+  transform: scale(1.02);
 }
