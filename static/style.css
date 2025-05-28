@@ -11,8 +11,13 @@ body {
 }
 
 .wanted-person {
-  border-bottom: 1px solid #ddd;
-  padding: 15px 0;
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
 }
 .wanted-person img {
   margin: 0 auto 20px;
@@ -39,4 +44,27 @@ body {
 .viewbutton:hover{
   background: linear-gradient(to right, #f75d42, #f76184);
   transform: scale(1.02);
+}
+.wanted-grid {
+ display: block;
+}
+
+.wanted-person {
+  width: 100%;  
+  max-width: 700px;  
+  margin: 10px auto; 
+
+}
+
+.wanted-person:hover {
+  transform: scale(1.03);
+}
+
+.wanted-person img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+* {
+  box-sizing: border-box;
 }

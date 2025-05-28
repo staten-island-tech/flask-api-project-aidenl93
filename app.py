@@ -6,16 +6,19 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     page = request.args.get('page', 1, type=int)
+    name = request.args.get('name', '', type=str)
     if page > 5:
         return "theres only 5 pages why u tryna hack the system", 404
-    response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
+    params = {
         "field_offices": "newyork",
-        'page': page,
-        'pagesize': 20
-    })
+        "page": page,
+        "pagesize": 20
+    }
+    if name:
+        params["title"] = name 
+    response = requests.get('https://api.fbi.gov/wanted/v1/list', params=params)
     data = response.json()
-    return render_template('index.html', items=data['items'], page=page, total=data['total'])
-
+    return render_template('index.html', items=data['items'], page=page, total=data['total'], name=name)
 @app.route("/wanted/<uid>")
 def wanted(uid):
     for page in range(1, 5):  # Adjust
