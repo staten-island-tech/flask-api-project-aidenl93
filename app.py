@@ -21,7 +21,7 @@ def index():
     return render_template('index.html', items=data['items'], page=page, total=data['total'], name=name)
 @app.route("/wanted/<uid>")
 def wanted(uid):
-    for page in range(1, 5):  # Adjust
+    for page in range(1, 6):  # Adjust
         response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
             "field_offices": "newyork",
             'page': page,
