@@ -9,7 +9,7 @@ def index():
     name = request.args.get('name', '', type=str)
     offices = request.args.get('offices', '', type=str)
     if page > 5:
-        return "theres only 5 pages why u tryna hack the system", 404
+        return "theres only 52 pages why u tryna hack the system", 404
     params = {
         "page": page,
         "pagesize": 20
@@ -19,12 +19,17 @@ def index():
     if offices:
         params["field_offices"] = offices
     response = requests.get('https://api.fbi.gov/wanted/v1/list', params=params)
-    data = response.json()
+    if response.status_code != 200:
+        return f"FBI API Error: {response.status_code}", 500
+    try:
+        data = response.json()
+    except ValueError:
+        return "invalid response", 500 
     return render_template('index.html', items=data['items'], page=page, total=data['total'], name=name)
 @app.route("/wanted/<uid>")
 def wanted(uid):
     for page in range(1, 52):  
-        response = requests.get('https://api.fbi.gov/wanted/v1/list', params={
+        response = requests.get('https://api.fbi.gov/waned/v1/list', params={
             'page': page,
             'pagesize': 20
         })
