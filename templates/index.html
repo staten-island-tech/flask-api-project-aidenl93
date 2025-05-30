@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>FBI MOST WANTED IN THE STATE OF NY</h1>
+    <h1>FBI MOST WANTED</h1>
 
     <div class="wanted-grid">
       {% for item in items %}
@@ -34,6 +34,20 @@
 
       <form method="get" action="/">
         <input type="text" name="name" placeholder="Search by name" value="{{ name }}">
+        <button type="submit">Search</button>
+      </form>
+      <form method="get" action="/">
+        <input type="text" name="name" placeholder="Search by name" value="{{ name }}">
+        
+        <select name="offices">
+          <option value="">All Offices</option>
+          <option value="newyork" {% if request.args.get('offices') == 'newyork' %}selected{% endif %}>New York</option>
+          <option value="losangeles" {% if request.args.get('offices') == 'losangeles' %}selected{% endif %}>Los Angeles</option> 
+          <option value="chicago" {% if request.args.get('offices') == 'chicago' %}selected{% endif %}>Chicago</option>
+          <option value="miami" {% if request.args.get('offices') == 'chicago' %}selected{% endif %}>Miami</option>
+          <! mr whalen if ur seeing this i'm not hard coding i just want to filter by major cities!>
+        </select>
+      
         <button type="submit">Search</button>
       </form>
     </div>
